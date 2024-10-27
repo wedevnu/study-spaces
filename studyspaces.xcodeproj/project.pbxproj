@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FE5497672CCECF0F00F15160 /* studyspacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5497662CCECF0F00F15160 /* studyspacesApp.swift */; };
-		FE5497692CCECF0F00F15160 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5497682CCECF0F00F15160 /* ContentView.swift */; };
 		FE54976B2CCECF1000F15160 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE54976A2CCECF1000F15160 /* Assets.xcassets */; };
 		FE54976E2CCECF1000F15160 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE54976D2CCECF1000F15160 /* Preview Assets.xcassets */; };
 		FE5497782CCECF1000F15160 /* studyspacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5497772CCECF1000F15160 /* studyspacesTests.swift */; };
@@ -36,7 +35,6 @@
 /* Begin PBXFileReference section */
 		FE5497632CCECF0F00F15160 /* studyspaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = studyspaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE5497662CCECF0F00F15160 /* studyspacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studyspacesApp.swift; sourceTree = "<group>"; };
-		FE5497682CCECF0F00F15160 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FE54976A2CCECF1000F15160 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE54976D2CCECF1000F15160 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FE5497732CCECF1000F15160 /* studyspacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = studyspacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,9 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				FE5497912CCECF2800F15160 /* Common */,
-				FE5497902CCECF2400F15160 /* New Group */,
+				FE5497902CCECF2400F15160 /* MapUX */,
 				FE5497662CCECF0F00F15160 /* studyspacesApp.swift */,
-				FE5497682CCECF0F00F15160 /* ContentView.swift */,
 				FE54976A2CCECF1000F15160 /* Assets.xcassets */,
 				FE54976C2CCECF1000F15160 /* Preview Content */,
 			);
@@ -129,11 +126,11 @@
 			path = studyspacesUITests;
 			sourceTree = "<group>";
 		};
-		FE5497902CCECF2400F15160 /* New Group */ = {
+		FE5497902CCECF2400F15160 /* MapUX */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "New Group";
+			path = MapUX;
 			sourceTree = "<group>";
 		};
 		FE5497912CCECF2800F15160 /* Common */ = {
@@ -273,7 +270,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE5497692CCECF0F00F15160 /* ContentView.swift in Sources */,
 				FE5497672CCECF0F00F15160 /* studyspacesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

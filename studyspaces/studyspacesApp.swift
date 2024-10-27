@@ -11,7 +11,7 @@ import SwiftUI
 struct studyspacesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Text("hello world")
         }
     }
 }
