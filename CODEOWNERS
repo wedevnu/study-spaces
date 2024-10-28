@@ -1,0 +1,14 @@
+# Anytime you create a new directory that isn't covered by this CODEOWNERS file, add your team/name to this file.
+# In general, it's a good idea to include your team name under the folder. However, if you are the sole owener of one part of the code, 
+# feel free to just tag yourself.
+
+# More info on CODEOWNERS https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners#codeowners-file-size
+
+
+# files @dilanrocco owns
+/CODEOWNERS @dilanrocco
+.gitignore @dilanrocco
+
+
+# In this example, the MapUX team would own the MapUX folder.
+#MapUX/ @wedevnu/mapux
