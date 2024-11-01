@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE244E342CD57E6600792258 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE244E332CD57E5E00792258 /* Post.swift */; };
+		FE244E362CD57EE900792258 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE244E352CD57EE900792258 /* PostView.swift */; };
+		FE244E382CD57F7200792258 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE244E372CD57F6D00792258 /* PostViewModel.swift */; };
+		FE244E3A2CD580A000792258 /* PostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE244E392CD5809C00792258 /* PostAPI.swift */; };
 		FE5497672CCECF0F00F15160 /* studyspacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5497662CCECF0F00F15160 /* studyspacesApp.swift */; };
 		FE54976B2CCECF1000F15160 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE54976A2CCECF1000F15160 /* Assets.xcassets */; };
 		FE54976E2CCECF1000F15160 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE54976D2CCECF1000F15160 /* Preview Assets.xcassets */; };
@@ -33,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE244E332CD57E5E00792258 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		FE244E352CD57EE900792258 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		FE244E372CD57F6D00792258 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		FE244E392CD5809C00792258 /* PostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPI.swift; sourceTree = "<group>"; };
 		FE5497632CCECF0F00F15160 /* studyspaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = studyspaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE5497662CCECF0F00F15160 /* studyspacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studyspacesApp.swift; sourceTree = "<group>"; };
 		FE54976A2CCECF1000F15160 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,6 +144,10 @@
 		FE5497912CCECF2800F15160 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				FE244E332CD57E5E00792258 /* Post.swift */,
+				FE244E352CD57EE900792258 /* PostView.swift */,
+				FE244E372CD57F6D00792258 /* PostViewModel.swift */,
+				FE244E392CD5809C00792258 /* PostAPI.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -270,7 +282,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE244E382CD57F7200792258 /* PostViewModel.swift in Sources */,
+				FE244E3A2CD580A000792258 /* PostAPI.swift in Sources */,
 				FE5497672CCECF0F00F15160 /* studyspacesApp.swift in Sources */,
+				FE244E362CD57EE900792258 /* PostView.swift in Sources */,
+				FE244E342CD57E6600792258 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
