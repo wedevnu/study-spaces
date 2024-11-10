@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -43,6 +43,10 @@
 		FE5497812CCECF1000F15160 /* studyspacesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studyspacesUITests.swift; sourceTree = "<group>"; };
 		FE5497832CCECF1000F15160 /* studyspacesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studyspacesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		BB415A732CE1631500A20C3B /* Services */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Services; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		FE5497602CCECF0F00F15160 /* Frameworks */ = {
@@ -92,6 +96,7 @@
 		FE5497652CCECF0F00F15160 /* studyspaces */ = {
 			isa = PBXGroup;
 			children = (
+				BB415A732CE1631500A20C3B /* Services */,
 				FE5497912CCECF2800F15160 /* Common */,
 				FE5497902CCECF2400F15160 /* MapUX */,
 				FE5497662CCECF0F00F15160 /* studyspacesApp.swift */,
@@ -154,6 +159,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				BB415A732CE1631500A20C3B /* Services */,
 			);
 			name = studyspaces;
 			productName = studyspaces;
