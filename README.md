@@ -16,7 +16,7 @@ Below, it is saying the user dilanrocco is the owner of the .gitignore file.
 ```
 
 ### Example 2:
-Here it is saying that the MapUX team owns the the `mapux` folder. Here the mapux would own all sub-directories in the `mapux` folder.
+Here it is saying that the MapUX team owns the `mapux` folder. Here the mapux would own all sub-directories in the `mapux` folder.
 ```
 MapUX/ @wedev/mapux
 ```
