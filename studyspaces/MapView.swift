@@ -1,60 +1,13 @@
 //
-//  SwiftUIView.swift
+//  MapView.swift
 //  studyspaces
 //
 //  Created by Josh Cho on 11/12/24.
-//
+
 import MapKit
 import SwiftUI
 
 
-extension SwiftUIView {
-    func clearRoute() {
-        withAnimation(.easeInOut) {
-            routeDisplaying = false
-            route = nil
-            routeDestination = nil
-            mapSelection = nil
-            cameraPosition = .region(.userRegion)
-        }
-    }
-    
-    func searchPlaces() async {
-        let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = searchText
-        request.region = .userRegion
-        
-        //This line populates the 'results' array with MKMapItems
-        // Each MKMapItem represents a location that matches the searcy query
-        let results = try? await MKLocalSearch(request: request).start()
-        self.results = results?.mapItems ?? []
-        
-        
-    }
-    
-    func fetchRoute() {
-        if let mapSelection {
-            let request = MKDirections.Request()
-            request.source = MKMapItem(placemark: .init(coordinate: .userLocation))
-            request.destination = mapSelection
-            
-            Task {
-                let result = try? await MKDirections(request: request).calculate()
-                route = result?.routes.first
-                routeDestination = mapSelection
-                
-                withAnimation(.snappy) {
-                    routeDisplaying = true
-                    showDetails = false
-                    
-                    if let rect = route?.polyline.boundingMapRect, routeDisplaying {
-                        cameraPosition = .rect(rect)
-                    }
-                }
-            }
-        }
-    }
-}
 
 
 extension CLLocationCoordinate2D {
@@ -70,21 +23,22 @@ extension MKCoordinateRegion {
 }
 
 
-struct SwiftUIView: View {
-    @State private var cameraPosition: MapCameraPosition = .region(.userRegion)
+struct MapView: View {
+    @ObservedObject var mapViewModel: MapViewViewModel
     @State private var searchText = ""
+    @State private var routeDisplaying = false
+    
     @State private var results = [MKMapItem]()
     @State private var mapSelection: MKMapItem?
     @State private var showDetails = false
     @State private var getDirections = false
-    @State private var routeDisplaying = false
+    
     @State private var route: MKRoute?
     @State private var routeDestination: MKMapItem?
     
     
     var body: some View {
-        Map(position: $cameraPosition, selection: $mapSelection) {
-//            Marker("My location", systemImage: "paperplane", coordinate: .userLocation).tint(.blue)
+        Map(position: mapViewModel.cameraPosition, selection: $mapSelection) {
             
             // blue circle that indicating my current location
             Annotation("Your Location", coordinate: .userLocation) {
@@ -138,7 +92,13 @@ struct SwiftUIView: View {
         .overlay(alignment: .bottomTrailing) {
             VStack {
                 if routeDisplaying {
-                    Button(action: clearRoute) {
+                    Button(action: {
+                        mapViewModel.perform(action: .clearRoute)
+                        route = nil
+                        routeDestination = nil
+                        mapSelection = nil
+                        routeDisplaying = false
+                    }) {
                         Image(systemName: "xmark.circle.fill")
                             .padding()
                             .background(Color.white)
@@ -150,7 +110,7 @@ struct SwiftUIView: View {
                 
                 // Existing location reset button
                 Button(action: {
-                    cameraPosition = .region(.userRegion)
+                    mapViewModel.cameraPosition = .userRegion
                 }) {
                     Image(systemName: "location.fill")
                         .padding()
@@ -163,11 +123,50 @@ struct SwiftUIView: View {
         }
         .onSubmit(of: .text) {
             //This triggers the search when the user submits the search text
-            Task { await searchPlaces() }
+            Task {
+                
+                mapViewModel.perform(action: .searchPlaces(""))
+                let request = MKLocalSearch.Request()
+                request.naturalLanguageQuery = searchText
+                request.region = .userRegion
+                
+                //This line populates the 'results' array with MKMapItems
+                // Each MKMapItem represents a location that matches the searcy query
+                let results = try? await MKLocalSearch(request: request).start()
+                self.results = results?.mapItems ?? []
+                
+            
+                
+                
+            }
         }
         .onChange(of: getDirections, { oldValue, newValue in
             if newValue {
-                fetchRoute()
+//
+                mapViewModel.perform(action: .fetchRoute)
+                
+                if let mapSelection {
+                    let request = MKDirections.Request()
+                    request.source = MKMapItem(placemark: .init(coordinate: .userLocation))
+                    request.destination = mapSelection
+                    
+                    Task {
+                        let result = try? await MKDirections(request: request).calculate()
+                        route = result?.routes.first
+                        routeDestination = mapSelection
+                        
+                        withAnimation(.snappy) {
+                            routeDisplaying = true
+                            showDetails = false
+                            
+                            if let rect = route?.polyline.boundingMapRect, routeDisplaying {
+                                mapViewModel.cameraPosition = .rect(rect)
+                            }
+                        }
+                    }
+                }
+                
+                
                 getDirections = false // Reset getDirections after fetching the route
             }
         })
@@ -189,5 +188,5 @@ struct SwiftUIView: View {
 }
 
 #Preview {
-    SwiftUIView()
+    MapView(mapViewModel: MapViewViewModel())
 }

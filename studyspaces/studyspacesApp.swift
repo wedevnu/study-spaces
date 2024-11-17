@@ -12,7 +12,7 @@ struct studyspacesApp: App {
     var body: some Scene {
         WindowGroup {
 //            Text("hello world")
-            SwiftUIView()
+            MapView(mapViewModel: MapViewViewModel())
         }
     }
 }
