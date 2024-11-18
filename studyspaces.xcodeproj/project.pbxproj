@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE9A57B22CE3FD9C00B909C9 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A57B12CE3FD9C00B909C9 /* SwiftUIView.swift */; };
-		AE9A57B62CE43EEC00B909C9 /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A57B52CE43EEC00B909C9 /* LocationDetailsView.swift */; };
+		AE9A57B22CE3FD9C00B909C9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A57B12CE3FD9C00B909C9 /* MapView.swift */; };
+		AE9A57B62CE43EEC00B909C9 /* DetailSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A57B52CE43EEC00B909C9 /* DetailSheetView.swift */; };
 		FE5497672CCECF0F00F15160 /* studyspacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5497662CCECF0F00F15160 /* studyspacesApp.swift */; };
 		FE54976B2CCECF1000F15160 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE54976A2CCECF1000F15160 /* Assets.xcassets */; };
 		FE54976E2CCECF1000F15160 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE54976D2CCECF1000F15160 /* Preview Assets.xcassets */; };
@@ -35,8 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AE9A57B12CE3FD9C00B909C9 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwiftUIView.swift; path = studyspaces/SwiftUIView.swift; sourceTree = SOURCE_ROOT; };
-		AE9A57B52CE43EEC00B909C9 /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocationDetailsView.swift; path = studyspaces/LocationDetailsView.swift; sourceTree = SOURCE_ROOT; };
+		AE9A57B12CE3FD9C00B909C9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapView.swift; path = studyspaces/MapView.swift; sourceTree = SOURCE_ROOT; };
+		AE9A57B52CE43EEC00B909C9 /* DetailSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailSheetView.swift; path = studyspaces/DetailSheetView.swift; sourceTree = SOURCE_ROOT; };
 		FE5497632CCECF0F00F15160 /* studyspaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = studyspaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE5497662CCECF0F00F15160 /* studyspacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studyspacesApp.swift; sourceTree = "<group>"; };
 		FE54976A2CCECF1000F15160 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,8 +133,8 @@
 		FE5497902CCECF2400F15160 /* MapUX */ = {
 			isa = PBXGroup;
 			children = (
-				AE9A57B12CE3FD9C00B909C9 /* SwiftUIView.swift */,
-				AE9A57B52CE43EEC00B909C9 /* LocationDetailsView.swift */,
+				AE9A57B12CE3FD9C00B909C9 /* MapView.swift */,
+				AE9A57B52CE43EEC00B909C9 /* DetailSheetView.swift */,
 			);
 			path = MapUX;
 			sourceTree = "<group>";
@@ -276,8 +276,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE9A57B22CE3FD9C00B909C9 /* SwiftUIView.swift in Sources */,
-				AE9A57B62CE43EEC00B909C9 /* LocationDetailsView.swift in Sources */,
+				AE9A57B22CE3FD9C00B909C9 /* MapView.swift in Sources */,
+				AE9A57B62CE43EEC00B909C9 /* DetailSheetView.swift in Sources */,
 				FE5497672CCECF0F00F15160 /* studyspacesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
