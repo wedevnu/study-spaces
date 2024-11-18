@@ -1,9 +1,3 @@
-//
-//  ContentView.swift
-//  WeDevPOC
-//
-//  Created by Comus Hardman IV on 11/17/24.
-//
 
 import SwiftUI
 import SwiftData
@@ -55,7 +49,3 @@ struct ContentView: View {
     }
 }
 
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
-}
