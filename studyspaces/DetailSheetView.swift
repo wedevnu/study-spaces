@@ -39,7 +39,7 @@ struct DetailSheetView: View {
                     
                 // Close button (X) in top right
                 Button {
-                        
+                    show = false
                 } label: {
                     Image(systemName: "xmark.circle.fill")
                         .resizable()
