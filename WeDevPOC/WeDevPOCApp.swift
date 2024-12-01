@@ -6,7 +6,8 @@ import Observation
 
 @main
 struct WeDevApp: App {
-    var manager = StudySpaceManager()
+    var studySpaceManager = StudySpaceManager()
+    var userManager = UserManager()
 
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
@@ -34,12 +35,17 @@ struct WeDevApp: App {
                     .tabItem {
                         Label("Map", systemImage: "map.fill")
                     }
-                FilterView(manager: manager)
+                FilterView(manager: studySpaceManager)
                     .tabItem {
                         Label("Filters", systemImage: "slider.horizontal.3")
                     }
+                UserView(manager: userManager)
+                    .tabItem {
+                        Label("User", systemImage: "person.crop.circle.fill")
+                    }
             }
-            .environment(manager) 
+            .environment(studySpaceManager)
+            .environment(userManager)
         }
         .modelContainer(sharedModelContainer)
     }

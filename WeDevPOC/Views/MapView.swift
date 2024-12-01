@@ -40,7 +40,7 @@ struct MapView: View {
                         .focused($isSearchFieldFocused)
                     
                     // Only show the Cancel button if user is searching
-                    if isSearching {
+                    if isSearchFieldFocused {
                         Button("Cancel") {
                             // Reset search
                             searchText = ""
@@ -48,47 +48,51 @@ struct MapView: View {
                             searchResults = []
                             isSearchFieldFocused = false
                         }
+                        .padding(.leading, 8)
                     }
                 }
                 .padding()
-
+                
                 // Display either search results or stored history
-                List {
-                    if searchResults.isEmpty && isSearchFieldFocused && !searchText.isEmpty {
-                        Text("No results")
-                    } else if isSearchFieldFocused && searchText.isEmpty {
-                        // Show search history from SwiftData
-                        ForEach(storedLocations) { location in
-                            Button(action: {
-                                // When a history item is tapped, update the map
-                                region = MKCoordinateRegion(
-                                    center: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude),
-                                    span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-                                )
-                                isSearching = false
-                                searchText = ""
-                                isSearchFieldFocused = false
-
-                                // Refresh timestamp to move it to the top of history list
-                                location.timestamp = Date()
-                            }) {
-                                Text(location.name)
+                // Only display this list if the search field is focused
+                if isSearchFieldFocused {
+                    List {
+                        if searchResults.isEmpty && isSearchFieldFocused && !searchText.isEmpty {
+                            Text("No results")
+                        } else if isSearchFieldFocused && searchText.isEmpty {
+                            // Show search history from SwiftData
+                            ForEach(storedLocations) { location in
+                                Button(action: {
+                                    // When a history item is tapped, update the map
+                                    region = MKCoordinateRegion(
+                                        center: CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude),
+                                        span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+                                    )
+                                    isSearching = false
+                                    searchText = ""
+                                    isSearchFieldFocused = false
+                                    
+                                    // Refresh timestamp to move it to the top of history list
+                                    location.timestamp = Date()
+                                }) {
+                                    Text(location.name)
+                                }
                             }
-                        }
-                    } else {
-                        // Show real-time search suggestions
-                        ForEach(searchResults, id: \.title) { result in
-                            Button(action: {
-                                search(for: result)
-                            }) {
-                                Text(result.title)
+                        } else {
+                            // Show real-time search suggestions
+                            ForEach(searchResults, id: \.title) { result in
+                                Button(action: {
+                                    search(for: result)
+                                }) {
+                                    Text(result.title)
+                                }
                             }
                         }
                     }
+                    .listStyle(.plain)
+                    //                    .opacity(isSearchFieldFocused ? 1 : 0)
                 }
-                .listStyle(.plain)
-                .opacity(isSearchFieldFocused ? 1 : 0)
-
+                
                 // Show the actual map
                 Map(coordinateRegion: $region, annotationItems: manager.filteredSpaces) { space in
                     MapAnnotation(coordinate: space.coordinate) {
@@ -99,7 +103,8 @@ struct MapView: View {
                         }
                     }
                 }
-                .ignoresSafeArea()
+                //                Makes the Map not overlap into the bottom menu
+                //                .ignoresSafeArea()
             }
             .navigationTitle("Study Spaces")
             .onAppear {
